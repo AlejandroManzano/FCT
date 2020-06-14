@@ -112,4 +112,18 @@ Y finalmente usamos el comando:
 
 Este comando se utiliza para aplicar los cambios necesarios para alcanzar el estado deseado de la configuración.
 
+Para destruir la infraestructura creada se utiliza el comando:
+- terraform destroy
 
+# SOFTWARES
+
+https://www.vagrantup.com/
+
+https://www.ansible.com/
+
+https://www.terraform.io/
+
+https://aws.amazon.com/es/
+
+# AUTOR
+Alejandro Manzano
