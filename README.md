@@ -50,6 +50,33 @@ Una vez realizado este paso, desde la máquina de ansible, se creará un par de 
 - ssh-copy-id root@IP 
 - ssh-copy-id vagrant@IP
 
+# USO DE ANSIBLE
+
+Ansible te permite automatizar el aprovisionamiento de software a gestionar y la configuración de máquinas virtuales. En este infraestructura el controlador será "vagrant-ansible" y los nodo "vagrant-node".
+
+Para comprobar que se puede realizar cualquier acción con ansible sobre estas máquinas se podría usar el siguiente comando para ver el nombre del host.
+En caso de comprobar en todos los equipos que estén en el fichero /etc/ansible/hosts a la vez:
+
+- ansible all -u root -a "hostname"
+
+Comprobar en un equipo en concreto:
+
+- ansible IP -u root -a "hostname"
+
+Con la opción -a se puede ejecutar cualquier comando y con el -m se llama a los módulos de ansible -m apt. 
+ansible [all o IP] -u root -m apt -a "name=servicio state=latest"
+
+
+En este caso vamos utilizar los playbooks de Ansible que nos permite orquestar y organizar unas tareas a un grupo de hosts en este caso sería las maquinas "vagrant-node", se instalará los servicios de apache2 y ngnix lamando a los playbooks que están en el directorio /home/vagrant/projects de la máquina de ansible:
+
+- ansible-playbook nombre_fichero_playbook.yaml
+
+
+Una vez instalados los servicios apache2 y nginx se puede comprobar en el navegador con las IPs de las máquinas para comprobar que se han instalado correctamente.
+
+Para desinstalar un servicio se puede hacer con el siguiente comando:
+
+- ansible [all o IP] -u root -m apt -a "name=servicio state=absent"
 
 
 
