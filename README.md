@@ -78,5 +78,38 @@ Para desinstalar un servicio se puede hacer con el siguiente comando:
 
 - ansible [all o IP] -u root -m apt -a "name=servicio state=absent"
 
+# TERRAFORM
+
+En la máquina virtual "vagrant-terraform" se instalará terraform, descargamos el paquete zip de Linux desde https://www.terraform.io/downloads.html y lo descomprimimos
+- sudo descomprimir terraform_0.12.24_linux_amd64.zip
+
+Lo movemos a / opt / y creamos un enlace simbólico para poder ejecutarlo desde cualquier lugar:
+- sudo mv terraform / opt /
+- sudo cd / usr / bin /
+- sudo ln -s / opt / terraform terraform
+
+Podemos ver la versión de Terraform con la que hemos instalado:
+
+- terraform --version
+
+Para comenzar a usar terraform necesita una carpeta con el archivo provider.tf donde le indicamos el proveedor que vamos a utilizar, en este caso AWS. 
+Con AWS necesitamos crear en el /home del usuario un directorio .aws con un fichero dentro llamado credentials donde se encontrara las claves pública y privadas de nuestro usuario IAM. 
+
+Cada vez que agregamos un proveedor, usamos el comando:
+- terraform init
+
+Este comando descarga e instala los plugins del proveedor.
+
+Con la infraestructura que se encuentra en la carpeta compartida de la máquina virtual se puede crear una infraestructura simple con un vpc y una instancia.
+
+Para crear la infraestructura usamos el comando:
+- terraform plan
+
+Este comando indica qué acciones son necesarias para lograr el estado deseado especificado en los archivos de configuración.
+
+Y finalmente usamos el comando:
+- terraform apply
+
+Este comando se utiliza para aplicar los cambios necesarios para alcanzar el estado deseado de la configuración.
 
 
