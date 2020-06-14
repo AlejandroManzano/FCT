@@ -1,0 +1,11 @@
+En la máquina virtual "vagrant-terraform" se instalará terraform, descargamos el paquete zip de Linux desde https://www.terraform.io/downloads.html y lo descomprimimos
+
+sudo descomprimir terraform_0.12.24_linux_amd64.zip
+Lo movemos a / opt / y creamos un enlace simbólico para poder ejecutarlo desde cualquier lugar:
+
+sudo mv terraform / opt /
+sudo cd / usr / bin /
+sudo ln -s / opt / terraform terraform
+Podemos ver la versión de Terraform con la que hemos instalado:
+
+terraform --version
