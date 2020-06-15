@@ -54,7 +54,7 @@ Una vez realizado este paso, desde la máquina de ansible, se creará un par de 
 
 Ansible te permite automatizar el aprovisionamiento de software a gestionar y la configuración de máquinas virtuales. En este infraestructura el controlador será "vagrant-ansible" y los nodo "vagrant-node".
 
-Para comprobar que se puede realizar cualquier acción con ansible sobre estas máquinas se podría usar el siguiente comando para ver el nombre del host.
+Primero hay que añadir las ips de los nodos a /etc/ansible/hosts y para comprobar que se puede realizar cualquier acción con ansible sobre estas máquinas se podría usar el siguiente comando para ver el nombre del host. 
 En caso de comprobar en todos los equipos que estén en el fichero /etc/ansible/hosts a la vez:
 
 - ansible all -u root -a "hostname"
